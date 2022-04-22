@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<body>
+    <h1>Convert CubeDesk data to csTimer data</h1>
+    <h2>This data conversion is not exactly 1:1, however, it should be enough if you're just looking to transfer times
+        and
+        sessions.</h2>
+    <h2>This script was put together very quickly and the possibility of data loss is not zero. I take no responsility
+        for any data loss. Backups, backups, backups.</h2>
+    <h2 style="color: red;">WARNING! THIS WILL OVERWRITE ANY SOLVES YOU CURRENTLY HAVE IN CSTIMER!</h2>
+
+    <p>Select your CubeDesk export file (this does not upload your results to the website):</p>
+    <!-- https://stackoverflow.com/a/37430241 -->
+    <form action="">
+        <input type="file" name="cubeDeskFile" accept="txt" id="cubeDeskFile">
+    </form>
+</body>
+
+<!-- https://stackoverflow.com/a/21893573 -->
+<script src="danml_download.js"></script>
+<script src="script.js"></script>
