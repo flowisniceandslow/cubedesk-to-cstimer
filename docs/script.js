@@ -1,7 +1,4 @@
-function getSolveBounds(cubeDeskData, sessionId, isOldest) {
-  const sessionSolves = cubeDeskData.solves.filter(
-    (solve) => solve.session_id === sessionId
-  );
+function getSolveBounds(sessionSolves, sessionId, isOldest) {
   const newestSorted = sessionSolves.sort(
     (a, b) => a.started_at - b.started_at
   );
@@ -27,20 +24,23 @@ function convertData(cubeDeskData) {
   };
 
   for (const session of cubeDeskData.sessions) {
+    console.log(session);
     csTimerData[`session${session.order + 1}`] = [];
+    const sessionSolves = cubeDeskData.solves.filter(
+      (solve) => solve.session_id === session.id
+    );
     csTimerData.properties.sessionData[(session.order + 1).toString()] = {
       name: session.name,
       opt: {},
-      stat: [
-        cubeDeskData.solves.filter((solve) => solve.session_id === session.id)
-          .length,
-        0,
-        0,
-      ],
-      date: [
-        getSolveBounds(cubeDeskData, session.id, false),
-        getSolveBounds(cubeDeskData, session.id, true),
-      ],
+      stat:
+        sessionSolves.length === 0 ? [0, 0, -1] : [sessionSolves.length, 0, 0],
+      date:
+        sessionSolves.length === 0
+          ? [null, null]
+          : [
+              getSolveBounds(sessionSolves, session.id, false),
+              getSolveBounds(sessionSolves, session.id, true),
+            ],
     };
   }
 
