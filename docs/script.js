@@ -24,7 +24,6 @@ function convertData(cubeDeskData) {
   };
 
   for (const session of cubeDeskData.sessions) {
-    console.log(session);
     csTimerData[`session${session.order + 1}`] = [];
     const sessionSolves = cubeDeskData.solves.filter(
       (solve) => solve.session_id === session.id
