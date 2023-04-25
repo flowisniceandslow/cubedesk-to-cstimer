@@ -1,6 +1,6 @@
 Convert CubeDesk data to csTimer data
 
-https://convert.elder.quest/
+https://flowisniceandslow.github.io/cubedesk-to-cstimer/
 ================================
 
 This data conversion is not exactly 1:1, however, it should be enough if you're just looking to transfer times and sessions.
