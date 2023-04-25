@@ -43,7 +43,7 @@ function convertData(cubeDeskData) {
     };
   }
 
-  for (const solve of cubeDeskData.solves) {
+  for (const solve of cubeDeskData.solves.reverse()) {
     csTimerData[sessionIdToSolvesKey(cubeDeskData, solve.session_id)].push([
       [
         solve.dnf ? -1 : solve.plus_two ? 2000 : 0,
